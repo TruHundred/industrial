@@ -1,0 +1,29 @@
+void CreateControls(HWND hWnd) {
+    // Gender label
+    g_hGenderLabel = CreateWindowEx(0, "STATIC", "Gender:", WS_CHILD | WS_VISIBLE, g_nMargin, g_nMargin, 50, 20, hWnd, NULL, NULL, NULL);
+
+    // Gender combo box
+    g_hGenderCombo = CreateWindowEx(0, "COMBOBOX", "", WS_CHILD | WS_VISIBLE | CBS_DROPDOWNLIST, g_nMargin + 60, g_nMargin, 100, 200, hWnd, NULL, NULL, NULL);
+    SendMessage(g_hGenderCombo, CB_ADDSTRING, 0, (LPARAM)"Male");
+    SendMessage(g_hGenderCombo, CB_ADDSTRING, 0, (LPARAM)"Female");
+    SendMessage(g_hGenderCombo, CB_SETCURSEL, 0, 0);
+
+    // Age label
+    g_hAgeLabel = CreateWindowEx(0, "STATIC", "Age:", WS_CHILD | WS_VISIBLE, g_nMargin, g_nMargin * 3, 50, 20, hWnd, NULL, NULL, NULL);
+
+    // Age edit box
+    g_hAgeEdit = CreateWindowEx(WS_EX_CLIENTEDGE, "EDIT", "", WS_CHILD | WS_VISIBLE | ES_NUMBER, g_nMargin + 60, g_nMargin * 3, 80, 20, hWnd, NULL, NULL, NULL);
+
+    // Hemoglobin level label
+    g_hHemoglobinLabel = CreateWindowEx(0, "STATIC", "Hemoglobin Level (g/dL):", WS_CHILD | WS_VISIBLE, g_nMargin, g_nMargin * 5, 150, 20, hWnd, NULL, NULL, NULL);
+
+    // Hemoglobin level edit box
+    g_hHemoglobinEdit = CreateWindowEx(WS_EX_CLIENTEDGE, "EDIT", "", WS_CHILD | WS_VISIBLE | ES_NUMBER | ES_AUTOHSCROLL, g_nMargin + 160, g_nMargin * 5, 80, 20, hWnd, NULL, NULL, NULL);
+
+    // Result label
+    g_hResultLabel = CreateWindowEx(WS_EX_CLIENTEDGE, "STATIC", "", WS_CHILD | WS_VISIBLE, g_nMargin, g_nMargin * 7, g_nWidth - g_nMargin * 2, 20, hWnd, NULL, NULL, NULL);
+
+    // OK button
+    CreateWindowEx(0, "BUTTON", "OK", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, g_nWidth - 50 - g_nMargin, g_nHeight - 50 - g_nMargin, 50, 30, hWnd, (HMENU)IDOK, NULL, NULL);
+}
+
